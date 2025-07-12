@@ -20,14 +20,10 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        userVM.getProcess()
-        userVM.getTaskGroup()
         setLayoutManager()
         setupProfile()
         setupProcess()
         setupTaskGroup()
-
-
     }
 
     private fun setLayoutManager() {
@@ -36,6 +32,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun setupTaskGroup() {
+        userVM.getTaskGroup()
         userVM.vmTaskGroup.observe(this) {
             if (it != null) {
                 binding.rvTaskGroup.adapter = TaskGroupAdapter(it)
@@ -46,6 +43,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun setupProcess() {
+        userVM.getProcess()
         userVM.vmProcess.observe(this) {
             if (it != null) {
                 binding.rvProcess.adapter = ProcessAdapter(it)

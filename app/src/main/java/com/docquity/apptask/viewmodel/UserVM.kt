@@ -28,14 +28,17 @@ class UserVM : ViewModel() {
         }
     }
 
-
     private val _vmProcess = MutableLiveData<List<ProcessInfoItem>>()
     val vmProcess: LiveData<List<ProcessInfoItem>> = _vmProcess
 
     fun getProcess() {
         viewModelScope.launch {
             try {
-                _vmProcess.value = repository.getProgress()
+                if (repository.getProgress().isNotEmpty()) {
+                    _vmProcess.value = repository.getProgress()
+                } else {
+                    _error.value = "No Data Found"
+                }
             } catch (e: Exception) {
                 _error.value = e.message
             }
@@ -48,7 +51,11 @@ class UserVM : ViewModel() {
     fun getTaskGroup() {
         viewModelScope.launch {
             try {
-                _vmTaskGroup.value = repository.getTaskGroup()
+                if (repository.getTaskGroup().isNotEmpty()) {
+                    _vmTaskGroup.value = repository.getTaskGroup()
+                } else {
+                    _error.value = "No Data Found"
+                }
             } catch (e: Exception) {
                 _error.value = e.message
             }
