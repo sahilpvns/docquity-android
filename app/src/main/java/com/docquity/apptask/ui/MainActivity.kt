@@ -7,6 +7,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
 import com.docquity.apptask.adapter.ProcessAdapter
 import com.docquity.apptask.adapter.TaskGroupAdapter
 import com.docquity.apptask.databinding.ActivityMainBinding
@@ -70,6 +71,7 @@ class MainActivity : AppCompatActivity() {
         userVM.vmUser.observe(this) {
             binding.tvUserName.text = it.user.name
             binding.tvUserDetail.text = it.user.greeting
+            Glide.with(this).load(it.user.profile_url).into(binding.ivUserImage);
         }
     }
 }

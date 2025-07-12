@@ -1,27 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
 <com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/cvCard"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_marginHorizontal="8dp"
     android:layout_marginTop="16dp"
-    app:cardBackgroundColor="@color/blue"
-    app:cardCornerRadius="8dp"
-    app:cardElevation="8dp"
+    app:cardBackgroundColor="@color/white"
+    app:cardCornerRadius="15dp"
+    app:cardElevation="3dp"
     app:layout_constraintStart_toStartOf="parent"
     app:layout_constraintTop_toBottomOf="@+id/ivUserImage">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="wrap_content">
 
         <com.google.android.material.textview.MaterialTextView
             android:id="@+id/tvTaskTitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
-            android:text="@string/today_task"
+            android:textColor="@color/black"
+            android:textStyle="bold"
+            tools:text="adfadadf adfadfa adsfadsf"
             app:layout_constraintStart_toEndOf="@+id/ivItemLogo"
             app:layout_constraintTop_toTopOf="@+id/ivItemLogo" />
 
@@ -31,10 +34,8 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
             android:layout_marginTop="4dp"
-            android:text="Grocery Shopping app design"
-            android:textColor="@android:color/black"
+            android:text="12 Tasks"
             android:textSize="16dp"
-            android:textStyle="bold"
             app:layout_constraintStart_toEndOf="@+id/ivItemLogo"
             app:layout_constraintTop_toBottomOf="@+id/tvTaskTitle" />
 
@@ -42,20 +43,37 @@
             android:id="@+id/ivItemLogo"
             android:layout_width="40dp"
             android:layout_height="40dp"
-            android:layout_margin="8dp"
-            app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_margin="24dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:srcCompat="@drawable/ic_notifications" />
 
-        <SeekBar
-            android:id="@+id/sbProcess"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="16dp"
+        <com.google.android.material.progressindicator.CircularProgressIndicator
+            android:id="@+id/circularProgress"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_marginVertical="8dp"
+            android:layout_marginEnd="16dp"
+            android:progress="80"
+            app:indicatorSize="60dp"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tvTaskSubTitle" />
+            app:layout_constraintTop_toTopOf="parent"
+            app:trackThickness="5dp" />
+
+        <TextView
+            android:id="@+id/progressText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="75%"
+            android:textColor="@color/gray"
+            android:textSize="12sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="@id/circularProgress"
+            app:layout_constraintEnd_toEndOf="@id/circularProgress"
+            app:layout_constraintStart_toStartOf="@id/circularProgress"
+            app:layout_constraintTop_toTopOf="@id/circularProgress" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

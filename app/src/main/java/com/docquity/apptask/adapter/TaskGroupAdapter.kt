@@ -15,14 +15,17 @@ class TaskGroupAdapter(private val taskGroupList: List<TaskGroup>) : RecyclerVie
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val taskGroup = taskGroupList[position]
-          holder.bind(taskGroup)
+        holder.bind(taskGroup)
     }
 
     override fun getItemCount(): Int = taskGroupList.size
 
     class ViewHolder(var binding: ItemTaskGroupBinding) : RecyclerView.ViewHolder(binding.root) {
         fun bind(taskGroup: TaskGroup) {
-          binding.tvTaskTitle.text = taskGroup.category
+            binding.tvTaskTitle.text = taskGroup.category
+            binding.tvTaskSubTitle.text = taskGroup.task_count.toString() + " Tasks"
+            binding.progressText.text = taskGroup.progress.toString()
+            binding.circularProgress.progress = taskGroup.progress
         }
     }
 }

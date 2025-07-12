@@ -13,6 +13,7 @@ data class UserInfo(
 
     data class User(
         val greeting: String,
-        val name: String
+        val name: String,
+        val profile_url: String
     )
 }
