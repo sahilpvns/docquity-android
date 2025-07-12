@@ -13,7 +13,7 @@ import kotlinx.coroutines.launch
 class UserVM : ViewModel() {
     private val repository = Repository()
     private val _error = MutableLiveData<String>()
-    val error: LiveData<String> = _error
+    val vmError: LiveData<String> = _error
 
     private val _vmUser = MutableLiveData<UserInfo>()
     val vmUser: LiveData<UserInfo> = _vmUser

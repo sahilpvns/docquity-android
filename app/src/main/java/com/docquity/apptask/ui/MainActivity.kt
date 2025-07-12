@@ -1,6 +1,7 @@
 package com.docquity.apptask.ui
 
 import android.os.Bundle
+import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
@@ -24,6 +25,15 @@ class MainActivity : AppCompatActivity() {
         setupProfile()
         setupProcess()
         setupTaskGroup()
+        errorHandling()
+    }
+
+    private fun errorHandling() {
+        userVM.vmError.observe(this) {
+            if (it != null) {
+                Toast.makeText(this, "Something went wrong $it", Toast.LENGTH_SHORT).show()
+            }
+        }
     }
 
     private fun setLayoutManager() {
@@ -35,6 +45,7 @@ class MainActivity : AppCompatActivity() {
         userVM.getTaskGroup()
         userVM.vmTaskGroup.observe(this) {
             if (it != null) {
+                binding.tvTaskGroup.visibility = View.VISIBLE
                 binding.rvTaskGroup.adapter = TaskGroupAdapter(it)
             } else {
                 Toast.makeText(this, "Something went wrong $it", Toast.LENGTH_SHORT).show()
@@ -46,6 +57,7 @@ class MainActivity : AppCompatActivity() {
         userVM.getProcess()
         userVM.vmProcess.observe(this) {
             if (it != null) {
+                binding.tvProcess.visibility = View.VISIBLE
                 binding.rvProcess.adapter = ProcessAdapter(it)
             } else {
                 Toast.makeText(this, "Something went wrong $it", Toast.LENGTH_SHORT).show()
