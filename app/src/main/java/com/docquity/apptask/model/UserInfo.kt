@@ -1,19 +1,14 @@
 package com.docquity.apptask.model
 
 data class UserInfo(
-    val today_task: TodayTask,
     val user: User
-) {
-    data class TodayTask(
+)
+
+data class User(
         val action: String,
         val completion_status: String,
-        val progress: Int,
-        val title: String
-    )
-
-    data class User(
         val greeting: String,
         val name: String,
-        val profile_url: String
+        val profile_url: String,
+        val progress: Int,
     )
-}

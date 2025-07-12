@@ -47,7 +47,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:srcCompat="@drawable/ic_notifications" />
+            app:srcCompat="@drawable/account" />
 
         <com.google.android.material.progressindicator.CircularProgressIndicator
             android:id="@+id/circularProgress"

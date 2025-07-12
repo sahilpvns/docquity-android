@@ -8,7 +8,8 @@
     android:background="@android:color/white"
     tools:context=".ui.MainActivity">
 
-    <de.hdodenhof.circleimageview.CircleImageView xmlns:app="http://schemas.android.com/apk/res-auto"
+    <de.hdodenhof.circleimageview.CircleImageView
+        xmlns:app="http://schemas.android.com/apk/res-auto"
         android:id="@+id/ivUserImage"
         android:layout_width="40dp"
         android:layout_height="40dp"
@@ -49,7 +50,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="20dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="12dp"
         app:cardBackgroundColor="@color/white"
         app:cardCornerRadius="8dp"
         app:cardElevation="8dp"
@@ -65,7 +66,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="16dp"
-                android:textStyle="bold"
+                android:textColor="@color/black"
                 android:text="@string/today_task"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -74,9 +75,9 @@
                 android:id="@+id/btViewTask"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_margin="16dp"
                 android:text="View Task"
                 app:cornerRadius="10dp"
+                android:layout_marginStart="16dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/tvTaskStatus" />
@@ -98,8 +99,8 @@
                 android:id="@+id/circularProgress"
                 android:layout_width="70dp"
                 android:layout_height="70dp"
-                android:layout_marginVertical="8dp"
-                android:layout_marginEnd="50dp"
+                android:layout_marginVertical="10dp"
+                android:layout_marginEnd="30dp"
                 android:progress="80"
                 app:indicatorSize="90dp"
                 app:trackThickness="8dp"
@@ -111,10 +112,10 @@
                 android:id="@+id/ivItemLogo"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_margin="16dp"
+                android:layout_margin="8dp"
+                android:src="@drawable/more_horiz"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:srcCompat="@drawable/ic_notifications" />
+                app:layout_constraintTop_toTopOf="parent" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 

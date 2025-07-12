@@ -21,7 +21,11 @@ class ProcessAdapter(private val processList: List<ProcessInfoItem>) : RecyclerV
 
     class ViewHolder(var binding: ItemProcessBinding) : RecyclerView.ViewHolder(binding.root) {
         fun bind(process: ProcessInfoItem) {
-            binding.tvTaskSubTitle.text = process.title
+            binding.apply {
+                tvTaskTitle.text = process.category
+                tvTaskSubTitle.text = process.title
+                sbProcess.progress = process.progress
+            }
         }
     }
 }

@@ -11,10 +11,11 @@ import com.bumptech.glide.Glide
 import com.docquity.apptask.adapter.ProcessAdapter
 import com.docquity.apptask.adapter.TaskGroupAdapter
 import com.docquity.apptask.databinding.ActivityMainBinding
+import com.docquity.apptask.model.UserInfo
 import com.docquity.apptask.viewmodel.UserVM
 
 class MainActivity : AppCompatActivity() {
-    private lateinit var binding: ActivityMainBinding
+    lateinit var binding: ActivityMainBinding
     private val userVM: UserVM by lazy { ViewModelProvider(this)[UserVM::class.java] }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -61,7 +62,7 @@ class MainActivity : AppCompatActivity() {
                 binding.tvProcess.visibility = View.VISIBLE
                 binding.rvProcess.adapter = ProcessAdapter(it)
             } else {
-                Toast.makeText(this, "Something went wrong $it", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, "Something went wrong $it", Toast.LENGTH_LONG).show()
             }
         }
     }
@@ -69,9 +70,25 @@ class MainActivity : AppCompatActivity() {
     private fun setupProfile() {
         userVM.getUserInfo()
         userVM.vmUser.observe(this) {
-            binding.tvUserName.text = it.user.name
-            binding.tvUserDetail.text = it.user.greeting
-            Glide.with(this).load(it.user.profile_url).into(binding.ivUserImage);
+            if (it != null) {
+                setProfile(it)
+            } else {
+                Toast.makeText(this, "Something went wrong $it", Toast.LENGTH_LONG).show()
+            }
         }
     }
 }
+
+private fun MainActivity.setProfile(it: UserInfo) {
+    binding.apply {
+        tvUserName.text = it.user.name
+        tvUserDetail.text = it.user.greeting
+        tvTaskStatus.text = it.user.completion_status
+        btViewTask.text = it.user.action
+        progressText.text = it.user.progress.toString() + "%"
+        circularProgress.progress = it.user.progress
+        Glide.with(this@setProfile).load(it.user.profile_url).into(binding.ivUserImage)
+    }
+
+}
+

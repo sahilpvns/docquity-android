@@ -6,7 +6,7 @@
     android:layout_height="wrap_content"
     android:layout_marginHorizontal="8dp"
     android:layout_marginTop="16dp"
-    app:cardBackgroundColor="#EDF5FA"
+    app:cardBackgroundColor="@color/light_blue"
     app:cardCornerRadius="15dp"
     app:cardElevation="3dp"
     app:layout_constraintStart_toStartOf="parent"
@@ -44,7 +44,7 @@
             android:layout_margin="16dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/ic_notifications" />
+            app:srcCompat="@drawable/account" />
 
         <com.google.android.material.progressindicator.LinearProgressIndicator
             android:id="@+id/sbProcess"
