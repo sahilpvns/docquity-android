@@ -6,4 +6,8 @@
     </style>
 
     <style name="Theme.AppTask" parent="Base.Theme.AppTask" />
+    
+    <style name="fab3round">
+        <item name="cornerSize">50dp</item>
+    </style>
 </resources>
