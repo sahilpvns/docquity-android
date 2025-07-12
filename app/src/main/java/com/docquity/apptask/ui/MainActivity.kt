@@ -1,6 +1,7 @@
 package com.docquity.apptask.ui
 
 import android.os.Bundle
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -12,24 +13,53 @@ import com.docquity.apptask.viewmodel.UserVM
 
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
-    private var userViewModel: UserVM? = null
+    private val userVM: UserVM by lazy { ViewModelProvider(this)[UserVM::class.java] }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        userViewModel = ViewModelProvider(this)[UserVM::class.java]
+        userVM.getProcess()
+        userVM.getTaskGroup()
+        setLayoutManager()
+        setupProfile()
+        setupProcess()
+        setupTaskGroup()
 
-        userViewModel?.getUserInfo()
-        userViewModel?.vmUser?.observe(this) {
-            binding.tvUserName.text = it.user.name
-        }
 
+    }
+
+    private fun setLayoutManager() {
         binding.rvProcess.layoutManager = LinearLayoutManager(this, RecyclerView.HORIZONTAL, false)
-        binding.rvProcess.adapter = ProcessAdapter()
-
         binding.rvTaskGroup.layoutManager = LinearLayoutManager(this)
-        binding.rvTaskGroup.adapter = TaskGroupAdapter()
+    }
 
+    private fun setupTaskGroup() {
+        userVM.vmTaskGroup.observe(this) {
+            if (it != null) {
+                binding.rvTaskGroup.adapter = TaskGroupAdapter(it)
+            } else {
+                Toast.makeText(this, "Something went wrong $it", Toast.LENGTH_SHORT).show()
+            }
+        }
+    }
+
+    private fun setupProcess() {
+        userVM.vmProcess.observe(this) {
+            if (it != null) {
+                binding.rvProcess.adapter = ProcessAdapter(it)
+            } else {
+                Toast.makeText(this, "Something went wrong $it", Toast.LENGTH_SHORT).show()
+            }
+        }
+    }
+
+    private fun setupProfile() {
+        userVM.getUserInfo()
+        userVM.vmUser.observe(this) {
+            binding.tvUserName.text = it.user.name
+            binding.tvUserDetail.text = it.user.greeting
+        }
     }
 }
