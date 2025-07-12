@@ -24,7 +24,7 @@ class TaskGroupAdapter(private val taskGroupList: List<TaskGroup>) : RecyclerVie
         fun bind(taskGroup: TaskGroup) {
             binding.tvTaskTitle.text = taskGroup.category
             binding.tvTaskSubTitle.text = taskGroup.task_count.toString() + " Tasks"
-            binding.progressText.text = taskGroup.progress.toString()
+            binding.progressText.text = taskGroup.progress.toString() + "%"
             binding.circularProgress.progress = taskGroup.progress
         }
     }

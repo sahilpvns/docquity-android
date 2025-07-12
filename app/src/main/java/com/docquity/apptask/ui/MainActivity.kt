@@ -39,7 +39,7 @@ class MainActivity : AppCompatActivity() {
 
     private fun setLayoutManager() {
         binding.rvProcess.layoutManager = LinearLayoutManager(this, RecyclerView.HORIZONTAL, false)
-        binding.rvTaskGroup.layoutManager = LinearLayoutManager(this)
+        binding.rvTaskGroup.layoutManager = LinearLayoutManager(this, RecyclerView.VERTICAL, false)
     }
 
     private fun setupTaskGroup() {
