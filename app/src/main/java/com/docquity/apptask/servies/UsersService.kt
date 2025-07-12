@@ -7,7 +7,7 @@ import retrofit2.http.GET
 
 interface UsersService {
 
-    @GET("users")
+    @GET("user")
     suspend fun getUsers(): UserInfo
 
     @GET("progress")
