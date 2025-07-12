@@ -3,8 +3,8 @@ package com.docquity.apptask.ui
 import android.os.Bundle
 import android.view.View
 import android.widget.Toast
+import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
-import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
@@ -13,10 +13,13 @@ import com.docquity.apptask.adapter.TaskGroupAdapter
 import com.docquity.apptask.databinding.ActivityMainBinding
 import com.docquity.apptask.model.UserInfo
 import com.docquity.apptask.viewmodel.UserVM
+import dagger.hilt.android.AndroidEntryPoint
 
+
+@AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
     lateinit var binding: ActivityMainBinding
-    private val userVM: UserVM by lazy { ViewModelProvider(this)[UserVM::class.java] }
+    private val userVM: UserVM by viewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

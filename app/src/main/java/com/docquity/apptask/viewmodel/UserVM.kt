@@ -8,10 +8,13 @@ import com.docquity.apptask.model.ProcessInfoItem
 import com.docquity.apptask.model.TaskGroup
 import com.docquity.apptask.model.UserInfo
 import com.docquity.apptask.repository.Repository
+import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
+import javax.inject.Inject
 
-class UserVM : ViewModel() {
-    private val repository = Repository()
+@HiltViewModel
+class UserVM @Inject constructor(private val repository: Repository) : ViewModel() {
+
     private val _error = MutableLiveData<String>()
     val vmError: LiveData<String> = _error
 

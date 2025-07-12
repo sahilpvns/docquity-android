@@ -1,6 +1,8 @@
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
+    id("com.google.dagger.hilt.android")
+    kotlin("kapt")
 }
 
 android {
@@ -65,5 +67,17 @@ dependencies {
     implementation ("androidx.lifecycle:lifecycle-runtime-ktx:2.6.1")
     implementation ("androidx.lifecycle:lifecycle-livedata-ktx:2.6.1")
 
+    // Core Hilt
+    implementation("com.google.dagger:hilt-android:2.56.2")
+    kapt("com.google.dagger:hilt-compiler:2.56.2")
+
+    // Hilt ViewModel
+    implementation("androidx.hilt:hilt-lifecycle-viewmodel:1.3.0-alpha02")
+    kapt("androidx.hilt:hilt-compiler:1.2.0")
+
 
 }
+  kapt {
+    correctErrorTypes = true
+  }
+
