@@ -19,7 +19,7 @@
             android:layout_gravity="bottom"
             android:backgroundTint="@color/white"
             app:fabCradleMargin="10dp"
-            android:background="@drawable/shape_sq"
+            android:background="@drawable/shape_rectangle"
             app:fabCradleRoundedCornerRadius="60dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"

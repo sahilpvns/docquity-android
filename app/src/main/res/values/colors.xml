@@ -5,5 +5,14 @@
     <color name="black">#FF000000</color>
     <color name="gray">#FF9E9E9E</color>
     <color name="light_gray">#FFEEEEEE</color>
-    <color name="light_blue">#EDF5FA</color>
+    <color name="light_blue">#8165F7</color>
+    <color name="more_light_blue">#E9F3FE</color>
+    <color name="background_dark_blue">#5935D9</color>
+    <color name="progress_blue">#3D8DFF</color>
+    <color name="card_light">#FFFFFF</color>
+    <color name="text_dark">#212121</color>
+    <color name="text_light_gray">#757575</color>
+    <color name="accent_orange">#FFA726</color>
+    <color name="light_pink">#FCE9E2</color>
+    <color name="dark_pink">#EE845E</color>
 </resources>

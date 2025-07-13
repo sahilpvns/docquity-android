@@ -2,15 +2,12 @@
 <com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/cvCard"
-    android:layout_width="300dp"
+    android:layout_width="280dp"
     android:layout_height="wrap_content"
     android:layout_marginHorizontal="8dp"
     android:layout_marginTop="16dp"
-    app:cardBackgroundColor="@color/light_blue"
-    app:cardCornerRadius="15dp"
-    app:cardElevation="3dp"
-    app:layout_constraintStart_toStartOf="parent"
-    app:layout_constraintTop_toBottomOf="@+id/ivUserImage">
+    app:cardBackgroundColor="@color/light_pink"
+    app:cardCornerRadius="15dp">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -21,19 +18,20 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="16dp"
-            android:text="@string/today_task"
+            android:text="@string/office_project"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
         <com.google.android.material.textview.MaterialTextView
             android:id="@+id/tvTaskSubTitle"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_margin="16dp"
             android:text="Grocery Shopping app design"
             android:textColor="@android:color/black"
             android:textSize="16dp"
             android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tvTaskTitle" />
 
@@ -42,9 +40,11 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="16dp"
+            android:padding="4dp"
+            android:background="@drawable/shape_rectangle"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/account" />
+            app:srcCompat="@drawable/bag_center" />
 
         <com.google.android.material.progressindicator.LinearProgressIndicator
             android:id="@+id/sbProcess"
@@ -52,6 +52,7 @@
             android:layout_height="wrap_content"
             android:layout_margin="16dp"
             android:progress="70"
+            app:indicatorColor="@color/blue"
             app:indicatorSize="90dp"
             app:trackThickness="8dp"
             app:layout_constraintBottom_toBottomOf="parent"

@@ -7,9 +7,7 @@ import com.docquity.apptask.servies.UsersService
 import javax.inject.Inject
 
 
-class Repository @Inject constructor(
-    private val userService: UsersService
-) {
+class Repository @Inject constructor(private val userService: UsersService) {
     suspend fun getUser(): UserInfo = userService.getUsers()
     suspend fun getProgress(): List<ProcessInfoItem> = userService.getInProgress()
     suspend fun getTaskGroup(): List<TaskGroup> = userService.getTaskGroup()

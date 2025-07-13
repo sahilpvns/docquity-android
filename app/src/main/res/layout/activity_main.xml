@@ -51,9 +51,8 @@
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="20dp"
         android:layout_marginTop="12dp"
-        app:cardBackgroundColor="@color/white"
-        app:cardCornerRadius="8dp"
-        app:cardElevation="8dp"
+        app:cardBackgroundColor="@color/background_dark_blue"
+        app:cardCornerRadius="24dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/ivUserImage">
 
@@ -63,20 +62,24 @@
 
             <com.google.android.material.textview.MaterialTextView
                 android:id="@+id/tvTaskStatus"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_margin="16dp"
-                android:textColor="@color/black"
+                android:textColor="@color/white"
                 android:text="@string/today_task"
+                app:layout_constraintEnd_toStartOf="@+id/circularProgress"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/btViewTask"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="45dp"
                 android:text="View Task"
                 app:cornerRadius="10dp"
+                android:backgroundTint="@color/white"
+                android:textColor="@color/background_dark_blue"
+                android:textStyle="bold"
                 android:layout_marginStart="16dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -86,8 +89,8 @@
                 android:id="@+id/progressText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="85%"
-                android:textColor="@color/gray"
+                android:textColor="@color/white"
+                tools:text="85%"
                 android:textSize="16sp"
                 android:textStyle="bold"
                 app:layout_constraintBottom_toBottomOf="@id/circularProgress"
@@ -99,11 +102,13 @@
                 android:id="@+id/circularProgress"
                 android:layout_width="70dp"
                 android:layout_height="70dp"
-                android:layout_marginVertical="10dp"
-                android:layout_marginEnd="30dp"
+                android:layout_marginVertical="16dp"
+                android:layout_marginEnd="50dp"
                 android:progress="80"
-                app:indicatorSize="90dp"
+                app:indicatorColor="@color/white"
+                app:indicatorSize="80dp"
                 app:trackThickness="8dp"
+                app:trackColor="@color/light_blue"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -112,7 +117,8 @@
                 android:id="@+id/ivItemLogo"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_margin="8dp"
+                android:layout_margin="16dp"
+                android:background="@drawable/shape_rectangle"
                 android:src="@drawable/more_horiz"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -127,11 +133,28 @@
         android:layout_height="wrap_content"
         android:layout_margin="16dp"
         android:text="@string/in_process"
-        android:textSize="24dp"
+        android:textSize="20dp"
         android:textStyle="bold"
         android:visibility="gone"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/cvCard"
+        tools:visibility="visible" />
+
+    <TextView
+        android:id="@+id/tvProcessNumber"
+        android:layout_width="16dp"
+        android:layout_height="16dp"
+        android:layout_marginStart="6dp"
+        android:layout_marginTop="3dp"
+        android:background="@drawable/shape_circle"
+        android:gravity="center"
+        android:text="6"
+        android:textColor="@color/white"
+        android:textSize="10dp"
+        android:visibility="visible"
+        app:layout_constraintBottom_toBottomOf="@+id/tvProcess"
+        app:layout_constraintStart_toEndOf="@+id/tvProcess"
+        app:layout_constraintTop_toTopOf="@+id/tvProcess"
         tools:visibility="visible" />
 
     <androidx.recyclerview.widget.RecyclerView
@@ -150,12 +173,29 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:text="@string/task_groups"
-        android:textSize="24dp"
+        android:textSize="20dp"
         android:layout_marginTop="8dp"
         android:textStyle="bold"
         android:visibility="gone"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/rvProcess"
+        tools:visibility="visible" />
+
+    <TextView
+        android:id="@+id/tvTaskGroupNumber"
+        android:layout_width="16dp"
+        android:layout_height="16dp"
+        android:layout_marginStart="6dp"
+        android:layout_marginTop="3dp"
+        android:background="@drawable/shape_circle"
+        android:gravity="center"
+        android:text="6"
+        android:textColor="@color/white"
+        android:textSize="10dp"
+        android:visibility="visible"
+        app:layout_constraintBottom_toBottomOf="@+id/tvTaskGroup"
+        app:layout_constraintStart_toEndOf="@+id/tvTaskGroup"
+        app:layout_constraintTop_toTopOf="@+id/tvTaskGroup"
         tools:visibility="visible" />
 
     <androidx.recyclerview.widget.RecyclerView
