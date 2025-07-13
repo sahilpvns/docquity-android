@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_marginHorizontal="8dp"
-    android:layout_marginTop="16dp"
+    android:layout_marginTop="12dp"
     app:cardBackgroundColor="@color/white"
     app:cardCornerRadius="15dp"
     app:cardElevation="3dp"
@@ -34,6 +34,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="12 Tasks"
+            android:textSize="12dp"
             app:layout_constraintStart_toStartOf="@+id/tvTaskTitle"
             app:layout_constraintTop_toBottomOf="@+id/tvTaskTitle" />
 
@@ -68,7 +69,7 @@
             android:layout_height="wrap_content"
             android:text="75%"
             android:textColor="@color/gray"
-            android:textSize="12sp"
+            android:textSize="10sp"
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="@id/circularProgress"
             app:layout_constraintEnd_toEndOf="@id/circularProgress"
