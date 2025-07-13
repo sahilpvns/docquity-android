@@ -1,4 +1,4 @@
-package com.docquity.apptask.ui
+package com.docquity.apptask.presentation
 
 import android.os.Bundle
 import android.view.View
@@ -8,11 +8,11 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
-import com.docquity.apptask.adapter.ProcessAdapter
-import com.docquity.apptask.adapter.TaskGroupAdapter
+import com.docquity.apptask.presentation.adapter.ProcessAdapter
+import com.docquity.apptask.presentation.adapter.TaskGroupAdapter
 import com.docquity.apptask.databinding.ActivityMainBinding
-import com.docquity.apptask.model.UserInfo
-import com.docquity.apptask.viewmodel.UserVM
+import com.docquity.apptask.domain.repository.model.UserInfo
+import com.docquity.apptask.presentation.viewmodel.UserVM
 import dagger.hilt.android.AndroidEntryPoint
 
 

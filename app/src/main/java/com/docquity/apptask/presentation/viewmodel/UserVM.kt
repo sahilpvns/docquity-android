@@ -1,13 +1,13 @@
-package com.docquity.apptask.viewmodel
+package com.docquity.apptask.presentation.viewmodel
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.docquity.apptask.model.ProcessInfoItem
-import com.docquity.apptask.model.TaskGroup
-import com.docquity.apptask.model.UserInfo
-import com.docquity.apptask.repository.Repository
+import com.docquity.apptask.domain.repository.model.ProcessInfoItem
+import com.docquity.apptask.domain.repository.model.TaskGroup
+import com.docquity.apptask.domain.repository.model.UserInfo
+import com.docquity.apptask.domain.repository.Repository
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
 import javax.inject.Inject

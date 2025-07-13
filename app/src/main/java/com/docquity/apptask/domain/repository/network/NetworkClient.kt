@@ -1,6 +1,6 @@
-package com.docquity.apptask.network
+package com.docquity.apptask.domain.repository.network
 
-import com.docquity.apptask.servies.UsersService
+import com.docquity.apptask.data.service.UserService
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -46,7 +46,7 @@ object NetworkModule {
 
     @Provides
     @Singleton
-    fun provideUserService(retrofit: Retrofit): UsersService {
-        return retrofit.create(UsersService::class.java)
+    fun provideUserService(retrofit: Retrofit): UserService {
+        return retrofit.create(UserService::class.java)
     }
 }

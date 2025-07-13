@@ -1,4 +1,4 @@
-package com.docquity.apptask.model
+package com.docquity.apptask.domain.repository.model
 
 data class UserInfo(
     val user: User

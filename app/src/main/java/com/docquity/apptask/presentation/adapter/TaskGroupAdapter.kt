@@ -1,4 +1,4 @@
-package com.docquity.apptask.adapter
+package com.docquity.apptask.presentation.adapter
 
 import android.content.res.ColorStateList
 import android.view.LayoutInflater
@@ -6,7 +6,7 @@ import android.view.ViewGroup
 import androidx.core.graphics.toColorInt
 import androidx.recyclerview.widget.RecyclerView
 import com.docquity.apptask.databinding.ItemTaskGroupBinding
-import com.docquity.apptask.model.TaskGroup
+import com.docquity.apptask.domain.repository.model.TaskGroup
 
 class TaskGroupAdapter(private val taskGroupList: List<TaskGroup>) : RecyclerView.Adapter<TaskGroupAdapter.ViewHolder>() {
 

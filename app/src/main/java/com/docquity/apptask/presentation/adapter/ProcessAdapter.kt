@@ -1,11 +1,11 @@
-package com.docquity.apptask.adapter
+package com.docquity.apptask.presentation.adapter
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.core.graphics.toColorInt
 import androidx.recyclerview.widget.RecyclerView
 import com.docquity.apptask.databinding.ItemProcessBinding
-import com.docquity.apptask.model.ProcessInfoItem
+import com.docquity.apptask.domain.repository.model.ProcessInfoItem
 
 class ProcessAdapter(private val processList: List<ProcessInfoItem>) : RecyclerView.Adapter<ProcessAdapter.ViewHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {

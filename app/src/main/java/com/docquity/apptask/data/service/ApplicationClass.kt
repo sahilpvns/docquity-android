@@ -1,9 +1,9 @@
-package com.docquity.apptask.ui
+package com.docquity.apptask.data.service
 
 import android.app.Application
 import dagger.hilt.android.HiltAndroidApp
 
 @HiltAndroidApp
-class App : Application() {
+class ApplicationClass : Application() {
 
 }
