@@ -2,6 +2,7 @@ package com.docquity.apptask.adapter
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.core.graphics.toColorInt
 import androidx.recyclerview.widget.RecyclerView
 import com.docquity.apptask.databinding.ItemProcessBinding
 import com.docquity.apptask.model.ProcessInfoItem
@@ -25,6 +26,8 @@ class ProcessAdapter(private val processList: List<ProcessInfoItem>) : RecyclerV
                 tvTaskTitle.text = process.category
                 tvTaskSubTitle.text = process.title
                 sbProcess.progress = process.progress
+                cvCard.setCardBackgroundColor(process.color1.toColorInt())
+                sbProcess.setIndicatorColor(process.color2.toColorInt())
             }
         }
     }

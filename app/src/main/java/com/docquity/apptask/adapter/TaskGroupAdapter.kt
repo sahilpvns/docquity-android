@@ -1,7 +1,9 @@
 package com.docquity.apptask.adapter
 
+import android.content.res.ColorStateList
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.core.graphics.toColorInt
 import androidx.recyclerview.widget.RecyclerView
 import com.docquity.apptask.databinding.ItemTaskGroupBinding
 import com.docquity.apptask.model.TaskGroup
@@ -22,10 +24,14 @@ class TaskGroupAdapter(private val taskGroupList: List<TaskGroup>) : RecyclerVie
 
     class ViewHolder(var binding: ItemTaskGroupBinding) : RecyclerView.ViewHolder(binding.root) {
         fun bind(taskGroup: TaskGroup) {
-            binding.tvTaskTitle.text = taskGroup.category
-            binding.tvTaskSubTitle.text = taskGroup.task_count.toString() + " Tasks"
-            binding.progressText.text = taskGroup.progress.toString() + "%"
-            binding.circularProgress.progress = taskGroup.progress
+            binding.apply {
+                tvTaskTitle.text = taskGroup.category
+                tvTaskSubTitle.text = taskGroup.task_count.toString() + " Tasks"
+                progressText.text = taskGroup.progress.toString() + "%"
+                circularProgress.progress = taskGroup.progress
+                circularProgress.setIndicatorColor(taskGroup.color1.toColorInt())
+                ivItemLogo.backgroundTintList = ColorStateList.valueOf(taskGroup.color1.toColorInt())
+            }
         }
     }
 }
