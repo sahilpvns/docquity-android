@@ -36,7 +36,7 @@ class MainActivity : AppCompatActivity() {
     private fun errorHandling() {
         userVM.vmError.observe(this) {
             if (it != null) {
-                Toast.makeText(this, "Something went wrong $it", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, "Something went wrong $it", Toast.LENGTH_LONG).show()
             }
         }
     }
@@ -50,10 +50,14 @@ class MainActivity : AppCompatActivity() {
         userVM.getTaskGroup()
         userVM.vmTaskGroup.observe(this) {
             if (it != null) {
-                binding.tvTaskGroup.visibility = View.VISIBLE
-                binding.rvTaskGroup.adapter = TaskGroupAdapter(it)
+                binding.apply {
+                    tvTaskGroup.visibility = View.VISIBLE
+                    tvTaskGroupNumber.visibility = View.VISIBLE
+                    tvTaskGroupNumber.text = it.size.toString()
+                    rvTaskGroup.adapter = TaskGroupAdapter(it)
+                }
             } else {
-                Toast.makeText(this, "Something went wrong $it", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, "Something went wrong $it", Toast.LENGTH_LONG).show()
             }
         }
     }
@@ -62,8 +66,12 @@ class MainActivity : AppCompatActivity() {
         userVM.getProcess()
         userVM.vmProcess.observe(this) {
             if (it != null) {
-                binding.tvProcess.visibility = View.VISIBLE
-                binding.rvProcess.adapter = ProcessAdapter(it)
+                binding.apply {
+                    tvProcess.visibility = View.VISIBLE
+                    tvProcessNumber.visibility = View.VISIBLE
+                    tvProcessNumber.text = it.size.toString()
+                    rvProcess.adapter = ProcessAdapter(it)
+                }
             } else {
                 Toast.makeText(this, "Something went wrong $it", Toast.LENGTH_LONG).show()
             }
