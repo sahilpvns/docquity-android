@@ -26,6 +26,8 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+
+        userVM.loadAllData()
         setLayoutManager()
         setupProfile()
         setupProcess()
@@ -47,7 +49,6 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun setupTaskGroup() {
-        userVM.getTaskGroup()
         userVM.vmTaskGroup.observe(this) {
             if (it != null) {
                 binding.apply {
@@ -63,7 +64,6 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun setupProcess() {
-        userVM.getProcess()
         userVM.vmProcess.observe(this) {
             if (it != null) {
                 binding.apply {
@@ -79,7 +79,6 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun setupProfile() {
-        userVM.getUserInfo()
         userVM.vmUser.observe(this) {
             if (it != null) {
                 setProfile(it)
